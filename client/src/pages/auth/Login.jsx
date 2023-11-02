@@ -40,11 +40,7 @@ function Login () {
       type: 'SET_USER',
       payload: user
     })
-<<<<<<< HEAD
     window.location.href = '/home'
-=======
-    navigate('/home')
->>>>>>> e38be4aa9df003866dfb92d2fc558221ab0c39e9
   }
 
   return (

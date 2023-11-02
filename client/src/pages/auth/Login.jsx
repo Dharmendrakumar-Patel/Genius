@@ -40,7 +40,7 @@ function Login () {
       type: 'SET_USER',
       payload: user
     })
-    window.location.href = '/home'
+    navigate('/home')
   }
 
   return (

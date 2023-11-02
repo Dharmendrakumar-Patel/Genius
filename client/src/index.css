@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Tauri&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .medium-text {
+        font-family: 'Tauri', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: 0.05em;
+        text-align: left;
+    }
+
+    .btn-drop {
+        filter: drop-shadow(7px 10px 1px rgba(0, 0, 0, 0.4500));
+        /* Optional */
+        background-color:rgba(243, 244, 245, 1);
+        width: 45%;
+        height:auto;
+    }
+}
+
+.styled-select select {
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    outline: none;
+}
+
+input{
+    outline: none;
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid #E5E5E5;
+    margin: 15px 0px;
+    font-family: 'Tauri', sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+    line-height: 25px;
+    letter-spacing: 0.05em;
+    text-align: left;
+}
+
+.bg-user-background {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-size: cover;
+}
+
+li{
+    font-family: 'Tauri', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    padding: 12px 0px;
+}

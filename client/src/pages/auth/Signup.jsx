@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { signup, getUserByToken } from "../../libs/userApi"
+import { signup } from "../../libs/userApi"
 import {
   Button,
   SkeltonButtonUrl,
@@ -20,21 +20,6 @@ function Signup () {
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      getUserByToken(localStorage.getItem('token'))
-        .then((user) => {
-          dispatch({
-            type: 'SET_USER',
-            payload: user
-          })
-          navigate('/home')
-        }).catch((err) => {
-          console.log(err)
-        })
-    }
-  }, [])
 
   const handleFullName = (e) => {
     setFullName(e.target.value)
@@ -56,7 +41,7 @@ function Signup () {
       type: 'SET_USER',
       payload: user
     })
-    navigate('/home')
+    navigate('/')
   }
 
   return (

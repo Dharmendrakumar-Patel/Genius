@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { login } from "../../libs/userApi"
+import { login, getUserByToken } from "../../libs/userApi"
 import {
   Button,
   SkeltonButtonUrl,
@@ -20,8 +20,19 @@ function Login () {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  useEffect(() => { 
-    window.history.replaceState({}, "", "/login");
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      getUserByToken(localStorage.getItem('token'))
+        .then((user) => {
+          dispatch({
+            type: 'SET_USER',
+            payload: user
+          });
+          navigate('/');
+        }).catch((err) => {
+          console.log(err);
+        });
+    }
   }, [])
 
   const handleEmail = (e) => {
@@ -40,7 +51,7 @@ function Login () {
       type: 'SET_USER',
       payload: user
     })
-    navigate('/home')
+    navigate('/')
   }
 
   return (
@@ -78,7 +89,7 @@ function Login () {
               <Button btnText={'Login'} customClassCSS={'bg-light-green'} type={'submit'} />
             </form>
             <p className="w-[89%] font-montserrat text-xl text-black font-normal text-left mt-2">Not have an account?
-              <NavLink to={'/'}>
+              <NavLink to={'/signup'}>
                 <span className="text-light-green"> Sign Up</span>
               </NavLink> 
             </p>

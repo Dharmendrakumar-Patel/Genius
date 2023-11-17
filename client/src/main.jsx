@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';
 import store from './store.js';
-import { isLoggedIn } from './libs/userApi.js';
 import App from './App.jsx';
 import Home from "./pages/home";
 import Signup from './pages/auth/Signup.jsx';
@@ -23,23 +22,23 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
-        element:  <Signup />,
+        path: "/signup",
+        element: localStorage.getItem('token') ? <Home /> :  <Signup />,
         errorElement: <ErrorPage />,
       },
       {
-        path: "/home",
-        element: isLoggedIn() ? <Home /> : <Login />,
+        path: "/",
+        element: localStorage.getItem('token') ? <Home /> : <Login />,
         errorElement: <ErrorPage />,
         children: [
           {
-            path: "/home",
-            element: <Chat />,
+            path: "/",
+            element: localStorage.getItem('token') ? <Chat /> : <Login />,
             errorElement: <ErrorPage />,
           },
           {
-            path: "/home/profile",
-            element: <Profile />,
+            path: "/profile",
+            element: localStorage.getItem('token') ? <Profile /> : <Login />,
             errorElement: <ErrorPage />,
           },
         ]

@@ -62,7 +62,7 @@ function Home () {
         <div className='menu w-full h-[65%] p-3'>
           <ul className='px-5 w-full'>
             <li>
-              <NavLink to='/home'>
+              <NavLink to='/'>
                 <span className='flex'>
                   <img className='mr-3' src={Chat} height={20} width={20} alt='Chat' />
                   Chat
@@ -70,7 +70,7 @@ function Home () {
               </NavLink>
             </li>
             <li>
-              <NavLink to='/home/profile'>
+              <NavLink to='/profile'>
                 <span className='flex'>
                   <img className='mr-3' src={User} height={20} width={20} alt='Profile' />
                   Profile
@@ -90,12 +90,12 @@ function Home () {
       </div>
       <div className='w-[100%] flex flex-row items-center justify-between lg:hidden h-[10%] bg-green-50 p-3 px-10 sticky bottom-0 '>
         <span>
-          <NavLink to='/home'>
+          <NavLink to='/'>
             <img className='w-[30px] h-[30px]' src={Chat} alt='Chat' />
           </NavLink>
         </span>
         <span>
-          <NavLink to='/home/profile'>
+          <NavLink to='/profile'>
             <img className='w-[30px] h-[30px]' src={User} alt='Profile' />
           </NavLink>
         </span>
